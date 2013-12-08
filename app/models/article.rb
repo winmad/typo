@@ -67,6 +67,7 @@ class Article < Content
       comment.save
     end
     self.body += "\n" + article_to_merge.body
+    article_to_merge.reload
     article_to_merge.destroy
     self.save
   end

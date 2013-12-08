@@ -4,3 +4,5 @@
   <%= render :partial => "form" %>
 
 <% end %>
+
+  <%= render :partial => "merge" unless @article.id.nil? or @article.state.to_s.downcase == 'draft' or User.find(session[:user_id]).profile.label != 'admin' %>

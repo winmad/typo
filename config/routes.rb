@@ -106,6 +106,8 @@ Rails.application.routes.draw do
   end
 
   # Admin/XController
+  post "/admin/content/merge/:id", :to => "admin/content#merge"
+
   %w{advanced cache categories comments content profiles feedback general pages
      resources sidebar textfilters themes trackbacks users settings tags redirects seo post_types }.each do |i|
     match "/admin/#{i}", :to => "admin/#{i}#index", :format => false
@@ -116,4 +118,5 @@ Rails.application.routes.draw do
   root :to  => 'articles#index', :format => false
 
   match '*from', :to => 'articles#redirect', :format => false
+
 end
